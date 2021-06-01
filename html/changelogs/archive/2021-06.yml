@@ -1,0 +1,20 @@
+2021-06-01:
+  Gamer025:
+  - bugfix: Offering an item multiple times no longer causes runtimes
+  - bugfix: Chairs no longer runtime when being deconstructed
+  Inept:
+  - rscadd: Some new holidays have been added.
+  JohnFulpWillard:
+  - qol: Microwaves now use Right Click instead of Alt click to turn on.
+  Krysonism:
+  - imageadd: The desk, green and banana lamps have been resprited.
+  Timberpoes:
+  - bugfix: Fix oversight where Dynamic can assign antag datums to the minds of players
+      who will be forcefully returned to the lobby.
+  ninjanomnom:
+  - imageadd: Better greyscale support has been added to datum materials allowing
+      objects to have more complex compositions of sprites. The golden cleric mace
+      is extra shiny now.
+  - bugfix: Mime shoes no longer runtime when generating their icon. This may fix
+      some graphical oddity or do nothing at all since they get colored pure white
+      anyway.
