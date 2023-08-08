@@ -1,7 +1,5 @@
 //node2, air2, network2 correspond to input
 //node1, air1, network1 correspond to output
-#define CIRCULATOR_HOT 0
-#define CIRCULATOR_COLD 1
 
 /obj/machinery/atmospherics/components/binary/circulator
 	name = "circulator/heat exchanger"
@@ -24,6 +22,9 @@
 /obj/machinery/atmospherics/components/binary/circulator/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation)
+
+/obj/machinery/atmospherics/components/binary/circulator/AltClick(mob/user)
+	return ..() // This hotkey is BLACKLISTED since it's used by /datum/component/simple_rotation
 
 //default cold circ for mappers
 /obj/machinery/atmospherics/components/binary/circulator/cold
@@ -144,15 +145,15 @@
 	if(generator)
 		disconnectFromGenerator()
 	mode = !mode
-	to_chat(user, span_notice("You set [src] to [mode?"cold":"hot"] mode."))
+	to_chat(user, span_notice("You set [src] to [mode ? "cold" : "hot"] mode."))
 	return TRUE
 
 /obj/machinery/atmospherics/components/binary/circulator/screwdriver_act(mob/user, obj/item/I)
 	if(..())
 		return TRUE
-	panel_open = !panel_open
+	toggle_panel_open()
 	I.play_tool_sound(src)
-	to_chat(user, span_notice("You [panel_open?"open":"close"] the panel on [src]."))
+	to_chat(user, span_notice("You [panel_open ? "open" : "close"] the panel on [src]."))
 	return TRUE
 
 /obj/machinery/atmospherics/components/binary/circulator/crowbar_act(mob/user, obj/item/I)
